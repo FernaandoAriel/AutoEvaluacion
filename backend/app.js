@@ -4,6 +4,10 @@ import cors from "cors";
 
 const app = express();
 
+import swaggerUi from "swagger-ui-express";
+import fs from "fs";
+import path from "path";
+
 /*
 app.use(
     cors({
@@ -15,6 +19,13 @@ app.use(
 
 app.use(express.json());
 
+//Traemos el archivo json
+const swaggerDocument = JSON.parse(
+  fs.readFileSync(path.resolve("./DocumentacionAuto.json"), "utf-8")
+);
+
+//Mostramos el archivo al ingresar a /api/docs
+app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use("/api/tasks", tasksRoutes);
 

@@ -1,0 +1,197 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Crud de AutoEvaluacion de Task",
+    "description": "Crud de AutoEvaluacion",
+    "contact": {
+      "email": "you@your-company.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/fernandomorales-a03/AutoEvaluacion/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "paths": {
+    "/api/tasks": {
+      "get": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "Create a Tasks",
+        "description": "Mostrar todas las task",
+        "operationId": "get-api-tasks",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "418": {
+            "description": "I'm a teapot (RFC 2324)"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "Put the Task",
+        "description": "Actualizar el Task",
+        "operationId": "put-api-tasks",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_tasks_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "418": {
+            "description": "I'm a teapot (RFC 2324)"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "Post a Tasks",
+        "description": "Agregar una nueva task",
+        "operationId": "post-api-tasks",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_tasks_body_1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "418": {
+            "description": "I'm a teapot (RFC 2324)"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Task"
+        ],
+        "summary": "Delete a Task",
+        "description": "Se elimina una Task por su Id",
+        "operationId": "delete-api-tasks",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "418": {
+            "description": "I'm a teapot (RFC 2324)"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "api_tasks_body": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "maxLength": 100,
+            "minLength": 4,
+            "type": "string",
+            "x-stoplight": {
+              "id": "qf03982gf1vzb"
+            }
+          },
+          "description": {
+            "maxLength": 200,
+            "minLength": 4,
+            "type": "string",
+            "x-stoplight": {
+              "id": "k1tbc9d7o4x7u"
+            }
+          },
+          "completed": {
+            "type": "boolean",
+            "x-stoplight": {
+              "id": "ddbajznjrlrm5"
+            }
+          }
+        }
+      },
+      "api_tasks_body_1": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "maxLength": 100,
+            "minLength": 4,
+            "type": "string",
+            "x-stoplight": {
+              "id": "bw0tl5tbq4t9b"
+            }
+          },
+          "description": {
+            "maxLength": 200,
+            "minLength": 4,
+            "type": "string",
+            "x-stoplight": {
+              "id": "f7f6zt9fm17hd"
+            }
+          },
+          "completed": {
+            "type": "boolean",
+            "x-stoplight": {
+              "id": "e5oi168r06i9i"
+            }
+          }
+        }
+      }
+    }
+  }
+}
